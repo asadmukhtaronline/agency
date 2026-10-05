@@ -1,0 +1,201 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\TeamMember;
+use App\Models\Designation;
+
+class TeamMemberSeeder extends Seeder
+{
+    public function run()
+    {
+        // Get all designations
+        $ceo = Designation::where('slug', 'ceo')->first();
+        $cto = Designation::where('slug', 'cto')->first();
+        $pm = Designation::where('slug', 'project-manager')->first();
+        $seniorDev = Designation::where('slug', 'senior-developer')->first();
+        $juniorDev = Designation::where('slug', 'junior-developer')->first();
+        $designer = Designation::where('slug', 'ui-ux-designer')->first();
+        $salesManager = Designation::where('slug', 'sales-manager')->first();
+        $support = Designation::where('slug', 'support-executive')->first();
+
+        $teamMembers = [
+            [
+                'designation_id' => $ceo->id ?? 1,
+                'name' => 'Asad Mukhtar',
+                'email' => 'asad@webinventorz.com',
+                'phone' => '+92 300 1234567',
+                'avatar' => null,
+                'bio' => 'Founder & CEO of WebInventorz with over 10 years of experience in web development and digital solutions. Passionate about technology and innovation.',
+                'skills' => json_encode(['Leadership', 'Business Strategy', 'Project Management', 'Client Relations']),
+                'facebook' => 'https://facebook.com/asad',
+                'twitter' => 'https://twitter.com/asad',
+                'linkedin' => 'https://linkedin.com/in/asad',
+                'instagram' => 'https://instagram.com/asad',
+                'github' => null,
+                'experience_years' => 10,
+                'education' => 'MS Computer Science',
+                'achievements' => 'Successfully delivered 500+ projects, Led team of 50+ developers',
+                'order' => 1,
+                'is_active' => true,
+            ],
+            [
+                'designation_id' => $cto->id ?? 2,
+                'name' => 'Ali Raza',
+                'email' => 'ali@webinventorz.com',
+                'phone' => '+92 300 2345678',
+                'avatar' => null,
+                'bio' => 'CTO with expertise in Laravel, Vue.js, and Cloud Architecture. Leading the technical team to deliver high-quality solutions.',
+                'skills' => json_encode(['Laravel', 'Vue.js', 'AWS', 'DevOps', 'Database Design']),
+                'facebook' => 'https://facebook.com/ali',
+                'twitter' => 'https://twitter.com/ali',
+                'linkedin' => 'https://linkedin.com/in/ali',
+                'instagram' => null,
+                'github' => 'https://github.com/ali',
+                'experience_years' => 8,
+                'education' => 'BS Software Engineering',
+                'achievements' => 'Architected 100+ enterprise applications, AWS Certified Solutions Architect',
+                'order' => 2,
+                'is_active' => true,
+            ],
+            [
+                'designation_id' => $pm->id ?? 3,
+                'name' => 'Sara Ahmed',
+                'email' => 'sara@webinventorz.com',
+                'phone' => '+92 300 3456789',
+                'avatar' => null,
+                'bio' => 'Experienced Project Manager skilled in Agile methodologies, client communication, and team coordination.',
+                'skills' => json_encode(['Agile', 'Scrum', 'JIRA', 'Client Management', 'Risk Management']),
+                'facebook' => 'https://facebook.com/sara',
+                'twitter' => null,
+                'linkedin' => 'https://linkedin.com/in/sara',
+                'instagram' => 'https://instagram.com/sara',
+                'github' => null,
+                'experience_years' => 6,
+                'education' => 'MBA Project Management',
+                'achievements' => 'Successfully managed 200+ projects, Certified Scrum Master',
+                'order' => 3,
+                'is_active' => true,
+            ],
+            [
+                'designation_id' => $seniorDev->id ?? 4,
+                'name' => 'Usman Khan',
+                'email' => 'usman@webinventorz.com',
+                'phone' => '+92 300 4567890',
+                'avatar' => null,
+                'bio' => 'Senior Full Stack Developer specializing in PHP, Laravel, React.js, and MySQL. Passionate about clean code and best practices.',
+                'skills' => json_encode(['PHP', 'Laravel', 'React.js', 'MySQL', 'REST APIs', 'Git']),
+                'facebook' => null,
+                'twitter' => 'https://twitter.com/usman',
+                'linkedin' => 'https://linkedin.com/in/usman',
+                'instagram' => null,
+                'github' => 'https://github.com/usman',
+                'experience_years' => 7,
+                'education' => 'BS Computer Science',
+                'achievements' => 'Contributed to 50+ open source projects, Laravel Certified Developer',
+                'order' => 4,
+                'is_active' => true,
+            ],
+            [
+                'designation_id' => $seniorDev->id ?? 4,
+                'name' => 'Fatima Zafar',
+                'email' => 'fatima@webinventorz.com',
+                'phone' => '+92 300 5678901',
+                'avatar' => null,
+                'bio' => 'Senior Frontend Developer expert in React, Vue.js, Tailwind CSS, and modern JavaScript frameworks.',
+                'skills' => json_encode(['React.js', 'Vue.js', 'Tailwind CSS', 'JavaScript', 'HTML5', 'CSS3']),
+                'facebook' => 'https://facebook.com/fatima',
+                'twitter' => null,
+                'linkedin' => 'https://linkedin.com/in/fatima',
+                'instagram' => 'https://instagram.com/fatima',
+                'github' => 'https://github.com/fatima',
+                'experience_years' => 5,
+                'education' => 'BS Software Engineering',
+                'achievements' => 'Created 30+ responsive websites, UI/UX certified',
+                'order' => 5,
+                'is_active' => true,
+            ],
+            [
+                'designation_id' => $juniorDev->id ?? 5,
+                'name' => 'Hamza Ali',
+                'email' => 'hamza@webinventorz.com',
+                'phone' => '+92 300 6789012',
+                'avatar' => null,
+                'bio' => 'Junior Developer passionate about learning new technologies and building web applications.',
+                'skills' => json_encode(['PHP', 'Laravel', 'JavaScript', 'Bootstrap', 'MySQL']),
+                'facebook' => null,
+                'twitter' => null,
+                'linkedin' => 'https://linkedin.com/in/hamza',
+                'instagram' => null,
+                'github' => 'https://github.com/hamza',
+                'experience_years' => 2,
+                'education' => 'BS Computer Science',
+                'achievements' => 'Completed 20+ client projects, Laravel Internship Certified',
+                'order' => 6,
+                'is_active' => true,
+            ],
+            [
+                'designation_id' => $designer->id ?? 6,
+                'name' => 'Ayesha Malik',
+                'email' => 'ayesha@webinventorz.com',
+                'phone' => '+92 300 7890123',
+                'avatar' => null,
+                'bio' => 'Creative UI/UX Designer with expertise in Figma, Adobe XD, and creating user-centered designs.',
+                'skills' => json_encode(['Figma', 'Adobe XD', 'Photoshop', 'Illustrator', 'User Research', 'Wireframing']),
+                'facebook' => 'https://facebook.com/ayesha',
+                'twitter' => 'https://twitter.com/ayesha',
+                'linkedin' => 'https://linkedin.com/in/ayesha',
+                'instagram' => 'https://instagram.com/ayesha',
+                'github' => null,
+                'experience_years' => 4,
+                'education' => 'BDes Graphic Design',
+                'achievements' => 'Designed 100+ websites, Behance featured designer',
+                'order' => 7,
+                'is_active' => true,
+            ],
+            [
+                'designation_id' => $salesManager->id ?? 7,
+                'name' => 'Omar Farooq',
+                'email' => 'omar@webinventorz.com',
+                'phone' => '+92 300 8901234',
+                'avatar' => null,
+                'bio' => 'Sales Manager with proven track record in B2B and B2C sales, client acquisition, and business development.',
+                'skills' => json_encode(['Sales Strategy', 'Client Acquisition', 'Negotiation', 'CRM', 'Lead Generation']),
+                'facebook' => null,
+                'twitter' => null,
+                'linkedin' => 'https://linkedin.com/in/omar',
+                'instagram' => null,
+                'github' => null,
+                'experience_years' => 8,
+                'education' => 'MBA Marketing',
+                'achievements' => 'Generated $2M+ revenue, Top Sales Performer Award 2023',
+                'order' => 8,
+                'is_active' => true,
+            ],
+            [
+                'designation_id' => $support->id ?? 8,
+                'name' => 'Zainab Tariq',
+                'email' => 'zainab@webinventorz.com',
+                'phone' => '+92 300 9012345',
+                'avatar' => null,
+                'bio' => 'Customer Support Executive dedicated to providing excellent client support and resolving technical issues.',
+                'skills' => json_encode(['Customer Service', 'Technical Support', 'Communication', 'Problem Solving', 'Ticketing Systems']),
+                'facebook' => 'https://facebook.com/zainab',
+                'twitter' => null,
+                'linkedin' => 'https://linkedin.com/in/zainab',
+                'instagram' => null,
+                'github' => null,
+                'experience_years' => 3,
+                'education' => 'BS Psychology',
+                'achievements' => '98% Customer Satisfaction Rating, Employee of the Month (3 times)',
+                'order' => 9,
+                'is_active' => true,
+            ],
+        ];
+
+        foreach ($teamMembers as $member) {
+            TeamMember::create($member);
+        }
+    }
+}
